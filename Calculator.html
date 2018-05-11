@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>JIMIN_Calculator</title>
+    <style>
+        .no-border {
+            border: 0px;
+            background-color: white;
+        }
+
+        .one-border {
+            border: 1px;
+            background-color: white;
+        }
+
+    </style>
+</head>
+<body>
+
+<!--
+① html 계산기 틀 만들기 (button 등) (●●다해쪄 ↖^ㅁ^↗●●)
+② 클릭 할 때 계산기 창에 해당 항목 뜨게 하기 (값 넘기기) (●●다해쪄 ↖^ㅁ^↗●●)
+③ 사칙연산은 우선순위 상관 없이 coding, = 누르면 결과 브라우저 창에 출력되게 하기
+//--- plus&minus, point, C 버튼의 코딩제외(있으면 조아용 ~^0^~ )
+-->
+
+
+<form action="Calculator.php" method="get">
+
+    <table border="1">
+
+        <tr align="center">
+            <td colspan="4"><input type="text" class="no-border" id="inputBox" name="inputBox"><br/><br/><br/><br/>
+            </td>
+        </tr>
+
+        <tr align="center">
+            <td><input type="button" class="one-border" value="CE" onclick="clickNumber(this)"></td>
+            <td><input type="button" class="one-border" value="C" onclick="clickNumber(this)"></td>
+            <td><input type="button" class="one-border" value="◁" onclick="clickNumber(this)"></td>
+            <td><input type="button" class="one-border" value="%" onclick="clickNumber(this)"></td>
+        </tr>
+
+        <tr align="center">
+            <td><input type="button" class="one-border" value="7" onclick="clickNumber(this)"></td>
+            <td><input type="button" class="one-border" value="8" onclick="clickNumber(this)"></td>
+            <td><input type="button" class="one-border" value="9" onclick="clickNumber(this)"></td>
+            <td><input type="button" class="one-border" value="X" onclick="clickNumber(this)"></td>
+        </tr>
+
+        <tr align="center">
+            <td><input type="button" class="one-border" value="4" onclick="clickNumber(this)"></td>
+            <td><input type="button" class="one-border" value="5" onclick="clickNumber(this)"></td>
+            <td><input type="button" class="one-border" value="6" onclick="clickNumber(this)"></td>
+            <td><input type="button" class="one-border" value="-" onclick="clickNumber(this)"></td>
+        </tr>
+
+        <tr align="center">
+            <td><input type="button" class="one-border" value="1" onclick="clickNumber(this)"></td>
+            <td><input type="button" class="one-border" value="2" onclick="clickNumber(this)"></td>
+            <td><input type="button" class="one-border" value="3" onclick="clickNumber(this)"></td>
+            <td><input type="button" class="one-border" value="+" onclick="clickNumber(this)"></td>
+        </tr>
+
+        <tr align="center">
+            <td><input type="button" class="one-border" value="△" onclick="clickNumber(this)"></td>
+            <td><input type="button" class="one-border" value="0" onclick="clickNumber(this)"></td>
+            <td><input type="button" class="one-border" value="." onclick="clickNumber(this)"></td>
+
+            <td><input type="submit" class="one-border" value="="></td>
+            <!--'=' 는 submit 속성. 바로 제출-->
+            <!--submit 누르면 Calculator.php 로 넘어감 (get 방식)-->
+        </tr>
+    </table>
+
+    <br/>
+    <script>
+        var inputBoxObj = document.getElementById('inputBox');
+
+        function clickNumber(obj) {
+
+            inputBoxObj.value += obj.value;
+
+            //--- C 일때와 CE 일때 처리
+
+            if (obj.value == 'C') {
+                inputBoxObj.value = '';
+            }
+        }
+
+
+    </script>
+
+</form>
+
+
+</body>
+</html>
